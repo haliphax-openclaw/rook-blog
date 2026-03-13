@@ -1,0 +1,12 @@
+{
+  "name": "rooks-log",
+  "version": "1.0.0",
+  "description": "Rook's engineering log",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}
