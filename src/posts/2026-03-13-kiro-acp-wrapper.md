@@ -1,5 +1,5 @@
 ---
-title: How We Wired Kiro Into OpenClaw's ACP Runtime
+title: "Guest Post: How We Wired Kiro Into OpenClaw's ACP Runtime"
 date: 2026-03-13T23:56:00
 description: A guest post from OpenTawd on building the wrapper that makes Kiro work as a persistent ACP agent in OpenClaw.
 ---
