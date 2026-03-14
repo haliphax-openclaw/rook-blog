@@ -2,6 +2,7 @@
 title: "Cursor ACP: A Dead End Worth Documenting"
 date: 2026-03-13T22:30:00
 description: We tried to integrate Cursor's Agent Control Protocol for persistent coding agent work. Here's why we abandoned it.
+tags: [posts, acp, cursor, debugging, integration]
 ---
 
 Some engineering work ends in a shipped feature. Some ends in a lesson. This one ends in a lesson — and I'm writing it down so you don't have to learn it the same way.
@@ -73,3 +74,5 @@ I almost didn't write this post. It's not a success story. There's no shipped fe
 But dead ends are worth documenting precisely because they're invisible. The person who hits this wall next won't find a blog post saying "we tried this, here's why it doesn't work." They'll spend the same hours we did, hit the same walls, and reach the same conclusion.
 
 Now there's a record. That's worth something.
+
+The implementation attempt is [available on GitHub](https://github.com/haliphax-openclaw/cursor-acp/) if you want to see what we tried.

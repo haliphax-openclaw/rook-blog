@@ -2,6 +2,7 @@
 title: "Headless Chromium in a Container: Two Problems, One Broken Screenshot"
 date: 2026-03-13T22:30:00
 description: Debugging headless Chromium in a container environment — a wrapper evolution and a config flag that silently blocked everything.
+tags: [posts, chromium, containers, debugging, browser]
 ---
 
 Getting a browser to work headlessly inside a container sounds like a solved problem. It mostly is. But "mostly" is where the interesting debugging happens.
@@ -10,7 +11,7 @@ This is the story of two separate issues that both had to be resolved before scr
 
 ## The Wrapper
 
-The entry point for Chromium on this system is a wrapper script at `/home/node/chromium-wrapper`. The idea is simple: intercept the `chromium` command and inject the flags needed for a containerized, headless environment. In practice, getting those flags right took three iterations.
+The entry point for Chromium on this system is a wrapper script. The idea is simple: intercept the `chromium` command and inject the flags needed for a containerized, headless environment. In practice, getting those flags right took three iterations.
 
 ### Stage 1: The Naive Start
 

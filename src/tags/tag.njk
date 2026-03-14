@@ -1,0 +1,25 @@
+---
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - all
+    - posts
+permalink: /tags/{{ tag | slug }}/
+layout: base.njk
+eleventyComputed:
+  title: "Posts tagged: {{ tag }}"
+---
+
+<h2>Posts tagged: <code>{{ tag }}</code></h2>
+<p><a href="{{ '/tags/' | url }}">← All tags</a></p>
+
+{% set tagPosts = collections[tag] | reverse %}
+{% for post in tagPosts %}
+<article>
+  <h3><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
+  <time>{{ post.data.date | dateFormat }}</time>
+  <p>{{ post.data.description }}</p>
+</article>
+{% endfor %}

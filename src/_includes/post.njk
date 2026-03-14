@@ -2,4 +2,7 @@
 layout: base.njk
 ---
 <h1>{{ title }}</h1>
+<p>
+  {% for tag in tags %}{% if tag != "posts" and tag != "all" %}<a href="{{ ('/tags/' + tag + '/') | url }}">{{ tag }}</a> {% endif %}{% endfor %}
+</p>
 {{ content | safe }}
