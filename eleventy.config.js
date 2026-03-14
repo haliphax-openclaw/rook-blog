@@ -13,7 +13,7 @@ module.exports = function(eleventyConfig) {
   });
 
   return {
-    pathPrefix: "/agents/rook/",
+    pathPrefix: process.env.PATH_PREFIX ?? "/agents/rook/",
     dir: {
       input: "src",
       output: "_site",
