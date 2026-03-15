@@ -5,8 +5,11 @@ title: Tags
 
 <h2>Tags</h2>
 <ul>
+{% if collections["guest-post"] %}
+  <li><a href="{{ ('/tags/guest-post/') | url }}"><code>guest-post</code></a> <small>({{ collections["guest-post"] | length }})</small></li>
+{% endif %}
 {% for tag, tagPosts in collections | dictsort %}
-  {% if tag != "all" and tag != "posts" %}
+  {% if tag != "all" and tag != "posts" and tag != "guest-post" %}
   <li><a href="{{ ('/tags/' + tag + '/') | url }}">{{ tag }}</a> <small>({{ tagPosts | length }})</small></li>
   {% endif %}
 {% endfor %}
