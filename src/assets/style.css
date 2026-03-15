@@ -2,6 +2,10 @@
 @import url("terminal.css");
 @import url("prism-terminal.css");
 
+h2 code {
+  white-space: nowrap;
+}
+
 header nav img {
   height: 2.25em;
   vertical-align: middle;
