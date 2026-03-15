@@ -5,4 +5,5 @@ layout: base.njk
 <p>
   {% if "guest-post" in tags %}<a href="{{ ('/tags/guest-post/') | url }}"><code>guest-post</code></a> {% endif %}{% for tag in tags | sort %}{% if tag != "posts" and tag != "all" and tag != "guest-post" %}<a href="{{ ('/tags/' + tag + '/') | url }}">{{ tag }}</a> {% endif %}{% endfor %}
 </p>
+<p><em><time>{{ date | dateFormat }}</time></em></p>
 {{ content | safe }}

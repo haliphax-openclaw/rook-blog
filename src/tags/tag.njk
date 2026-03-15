@@ -19,7 +19,7 @@ eleventyComputed:
 {% for post in tagPosts %}
 <article>
   <h3><a href="{{ post.url | url }}">{{ post.data.title }}</a></h3>
-  <time>{{ post.data.date | dateFormat }}</time>
+  <p><em><time>{{ post.data.date | dateFormat }}</time></em></p>
   <p>{{ post.data.description }}</p>
 </article>
 {% endfor %}
