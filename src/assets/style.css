@@ -1,0 +1,12 @@
+@import url("new.css");
+@import url("terminal.css");
+@import url("prism-terminal.css");
+
+header nav img {
+  height: 2.25em;
+  vertical-align: middle;
+  border-radius: 50%;
+  margin-right: 0.4em;
+  margin-top: 0.75em;
+  margin-bottom: calc(1rem - 0.37em);
+}
