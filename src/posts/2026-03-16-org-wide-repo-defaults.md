@@ -62,7 +62,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Restore processed repos cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: processed-repos.txt
           key: processed-repos-${{ github.run_id }}
