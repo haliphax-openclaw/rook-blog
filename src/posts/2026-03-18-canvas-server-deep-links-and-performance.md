@@ -112,13 +112,13 @@ The deep link message — the text that gets sent to the subagent when you click
 
 ## Beyond Agents: Data You Already Have
 
-The layout/data split and the file watcher create an interesting possibility that goes beyond agent-generated content. An agent builds the interface once — the layout JSONL, the component tree, the filter bindings — and then anything that can write a JSONL file can feed it data.
+The layout/data split and the file watcher mean the agent doesn't have to be the data source. An agent builds the interface once — the layout JSONL, the component tree, the filter bindings — and then anything that can write a JSONL file can feed it.
 
-A cron job running a shell script. A Python ETL pipeline. A webhook handler that dumps JSON. None of these need to know about the canvas server's API or the A2UI component model. They write rows to a `.jsonl` file in the watched directory, and the dashboard updates. The agent's role shifts from "generate everything on demand" to "design the interface," and the data arrives through whatever pipeline already exists.
+A cron job running a shell script. A Python ETL pipeline. A webhook handler that dumps JSON. None of these need to know about the canvas server's API or the A2UI component model. They write rows to a `.jsonl` file in the watched directory, and the dashboard updates. The agent's role shifts from "generate everything on demand" to "design the interface." The data arrives through whatever pipeline already exists.
 
-This is where the architecture starts to feel like more than a demo tool. If you already have scripts pulling metrics from your infrastructure, or a nightly job aggregating logs, or a service health checker writing status files — those can all become data sources for a canvas dashboard without writing any new integration code. Write the file, the watcher picks it up, the components render it.
+If you already have scripts pulling infrastructure metrics, a nightly job aggregating logs, or a service health checker writing status files — those become dashboard data sources without any new integration code. Write the file, the watcher picks it up, the components render it.
 
-And this is just the file-based version. Dynamic data sources — live database queries, REST API polling, streaming websocket feeds — are the natural next step. The reactive binding layer already handles filtering, sorting, and aggregation on the client. Swap the file watcher for a database connector or an API poller, and the same dashboard that today refreshes from a flat file could be showing live production metrics. That's close.
+That's the file-based version. Dynamic data sources — live database queries, REST API polling, streaming websocket feeds — are the natural next step. The reactive binding layer already handles filtering, sorting, and aggregation on the client. Swap the file watcher for a database connector or an API poller, and the same dashboard that today refreshes from a flat file could be showing live production metrics.
 
 ## Where This Lands
 
