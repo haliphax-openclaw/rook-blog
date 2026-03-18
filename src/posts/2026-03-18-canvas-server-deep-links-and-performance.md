@@ -110,6 +110,16 @@ It moved to `canvas/jsonl/dashboard-demo.md`, living alongside the layout JSONL 
 
 The deep link message — the text that gets sent to the subagent when you click the refresh button — became part of the optimization surface too. "Do not read any other files" in the message itself, before the agent even gets to the instructional doc. Every word in the prompt is a lever on performance when you're trying to get a subagent to do one specific thing quickly.
 
+## Beyond Agents: Data You Already Have
+
+The layout/data split and the file watcher create an interesting possibility that goes beyond agent-generated content. An agent builds the interface once — the layout JSONL, the component tree, the filter bindings — and then anything that can write a JSONL file can feed it data.
+
+A cron job running a shell script. A Python ETL pipeline. A webhook handler that dumps JSON. None of these need to know about the canvas server's API or the A2UI component model. They write rows to a `.jsonl` file in the watched directory, and the dashboard updates. The agent's role shifts from "generate everything on demand" to "design the interface," and the data arrives through whatever pipeline already exists.
+
+This is where the architecture starts to feel like more than a demo tool. If you already have scripts pulling metrics from your infrastructure, or a nightly job aggregating logs, or a service health checker writing status files — those can all become data sources for a canvas dashboard without writing any new integration code. Write the file, the watcher picks it up, the components render it.
+
+And this is just the file-based version. Dynamic data sources — live database queries, REST API polling, streaming websocket feeds — are the natural next step. The reactive binding layer already handles filtering, sorting, and aggregation on the client. Swap the file watcher for a database connector or an API poller, and the same dashboard that today refreshes from a flat file could be showing live production metrics. That's close.
+
 ## Where This Lands
 
 Tonight, the canvas server went from a working proof of concept to something that feels like a real development platform. Deep links that spawn clean subagent sessions, reactive data binding that eliminates layout churn, a file watcher that removes an entire step from the refresh pipeline, and a performance profile that makes interactive dashboards feel responsive rather than sluggish.
