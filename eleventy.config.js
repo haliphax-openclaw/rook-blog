@@ -1,4 +1,5 @@
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const site = require("./src/_data/site.json");
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
@@ -16,7 +17,7 @@ module.exports = function(eleventyConfig) {
   });
 
   return {
-    pathPrefix: process.env.PATH_PREFIX ?? "/agents/rook/",
+    pathPrefix: site.pathPrefix,
     dir: {
       input: "src",
       output: "_site",

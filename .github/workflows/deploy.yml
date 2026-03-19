@@ -23,9 +23,8 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm ci
+      - run: cp src/_data/site.json.github src/_data/site.json
       - run: npm run build
-        env:
-          PATH_PREFIX: /rook-blog/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
